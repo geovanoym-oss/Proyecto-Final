@@ -97,6 +97,7 @@ body {
   display: block;
   filter: contrast(0.95) brightness(0.9);
 }
+
 .slide-caption {
   position: absolute;
   left: 28px;
@@ -362,4 +363,124 @@ body {
   max-height: none !important;
   object-fit: contain !important; /* NO RECORTA */
   display: block;
+}
+.warzone3-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+.lol-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+.app-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+.AI-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+/* SLIDES NORMALES */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SOLO EL PRIMER SLIDE */
+.slide:first-child img {
+  object-fit: contain;
+}
+
+.gen-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+.callof-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+.pc-img-box img {
+  width: 100% !important;
+  height: auto !important; /* CLAVE */
+  max-height: none !important;
+  object-fit: contain !important; /* NO RECORTA */
+  display: block;
+}
+/* =================================================
+   TOP 5 SHOOTERS – IMÁGENES COMPLETAS SIN RECORTE
+   ================================================= */
+
+.main > .card {
+  overflow: hidden;
+}
+
+.main > .card:nth-of-type(-n + 5) img {
+  max-width: 100%;
+  max-height: 260px;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===========================
+   MENÚ MÓVIL (ok)
+   =========================== */
+
+@media (max-width: 900px) {
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(7, 19, 42, 0.98);
+    display: none;
+    padding: 12px 0;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .main-nav a {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 0;
+  }
+
+  .main-nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .main-nav.open {
+    display: block;
+  }
 }

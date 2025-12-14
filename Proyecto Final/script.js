@@ -1,15 +1,26 @@
 /* script.js - Comportamiento: menú móvil, carrusel, año en footer */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Menú móvil
+  // =====================
+  // MENÚ MÓVIL
+  // =====================
   const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
+
   menuToggle.addEventListener("click", () => {
-    const visible = mainNav.style.display === "block";
-    mainNav.style.display = visible ? "none" : "block";
+    mainNav.classList.toggle("open");
   });
 
-  // Carousel básico
+  // Cerrar menú al tocar un link (opcional pero recomendado)
+  document.querySelectorAll(".main-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("open");
+    });
+  });
+
+  // =====================
+  // CARRUSEL
+  // =====================
   const track = document.querySelector(".carousel-track");
   const slides = Array.from(track.children);
   const nextBtn = document.querySelector(".carousel-btn.next");
@@ -28,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateTrack() {
-    track.style.transform = `translateX(-${currentIndex * 100}% )`;
-    // update indicators
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
     const indicators = Array.from(indicatorsContainer.children);
     indicators.forEach((b, i) =>
       b.classList.toggle("active", i === currentIndex)
@@ -44,23 +55,17 @@ document.addEventListener("DOMContentLoaded", function () {
   nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
   prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
 
-  // autoplay suave
+  // Autoplay
   let autoplay = setInterval(() => goToSlide(currentIndex + 1), 6000);
-  // pausa hover
+
   const carousel = document.getElementById("carousel");
   carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
-  carousel.addEventListener(
-    "mouseleave",
-    () => (autoplay = setInterval(() => goToSlide(currentIndex + 1), 6000))
-  );
+  carousel.addEventListener("mouseleave", () => {
+    autoplay = setInterval(() => goToSlide(currentIndex + 1), 6000);
+  });
 
-  // Año en footer
+  // =====================
+  // AÑO EN FOOTER
+  // =====================
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Ajuste inicial (por si es mobile)
-  if (window.innerWidth <= 900) {
-    mainNav.style.display = "none";
-  } else {
-    mainNav.style.display = "block";
-  }
 });
