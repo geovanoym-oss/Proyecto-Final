@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mainNav.classList.toggle("open");
   });
 
-  // Cerrar menú al tocar un link (opcional pero recomendado)
+  // Cerrar menú al tocar un link
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.addEventListener("click", () => {
       mainNav.classList.remove("open");
@@ -64,8 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
     autoplay = setInterval(() => goToSlide(currentIndex + 1), 6000);
   });
 
-  // =====================
-  // AÑO EN FOOTER
-  // =====================
   document.getElementById("year").textContent = new Date().getFullYear();
 });
